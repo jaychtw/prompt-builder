@@ -1,24 +1,31 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f7f0">
-  <title>Kodi’s Prompt Workshop</title>
-  <link rel="stylesheet" href="workshop.css">
-  <script defer src="workshop.js"></script>
-</head>
-<body>
-  <header><div class="wrap top"><b class="brand"><span class="mark" aria-hidden="true">✧</span><span id="brand"></span></b><button id="language"></button></div></header>
-  <main class="wrap">
-    <section class="welcome">
-      <div class="portrait"><img src="kodi.png" alt="Kodi"><span id="name"></span></div>
-      <div class="dialogue"><div class="eyebrow" id="eyebrow"></div><h1 id="title"></h1><p id="speech"></p><button id="listen" hidden></button></div>
-    </section>
-    <div class="progress"><span id="meter" aria-hidden="true"></span><span id="progress"></span></div>
-    <h2 id="question" tabindex="-1"></h2>
-    <div id="panel"></div>
-    <p id="status" role="status"></p>
-  </main>
-  <footer class="wrap"><span id="foot"></span></footer>
-</body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#faf9f2">
+<title>Prompt Builder (跟著我寫提示詞)</title><link rel="stylesheet" href="workshop.css">
+<style>
+.intro { display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,36%);align-items:center;overflow:hidden;border:1px solid #adc1a3;background:#e3ecd9;border-radius:24px }
+.copy { padding:clamp(22px,5vw,56px) }.copy h1 span {display:block;font:700 clamp(1.3rem,3vw,2rem)/1.45 system-ui;margin-top:.45rem;letter-spacing:0}
+.intro img {width:100%;height:100%;max-height:385px;object-fit:cover;object-position:50% 35%}
+.intro p {max-width:40ch;margin:1rem 0 0}.modules {margin-top:28px}
+.choices a {display:block;text-decoration:none;color:inherit}.choices a:hover strong {text-decoration:underline;text-underline-offset:.15em}
+.card .number {display:block;font:700 .88rem/1.5 system-ui;letter-spacing:.05em;margin-bottom:.55rem}
+@media(max-width:600px){.intro{grid-template-columns:1fr 32%}.copy{padding:16px}.intro img{object-position:54% center}.copy h1{font-size:1.9rem}.copy p{font-size:1rem}.modules{margin-top:20px}}
+</style></head><body>
+<header><div class="wrap top"><b class="brand"><span aria-hidden="true" class="mark">✧</span><span data-en="Kodi’s workshop" data-zh="Kodi 的工坊">Kodi’s workshop</span></b><button id="lang" type="button">繁體中文</button></div></header>
+<main class="wrap"><section class="intro"><div class="copy"><h1>Prompt Builder<span lang="zh-Hant">跟著我寫提示詞</span></h1>
+<p data-en="What would you like to make? Join Kodi to turn an app or game idea into instructions you can give an AI." data-zh="你想做一個工具，還是設計一款遊戲？跟著 Kodi，把腦中的點子寫成 AI 看得懂的提示詞。">What would you like to make? Join Kodi to turn an app or game idea into instructions you can give an AI.</p></div><img src="kodi.png" alt="Kodi"></section>
+<section class="modules"><h2 data-en="Choose a workshop" data-zh="選擇你的工坊">Choose a workshop</h2><div class="choices">
+<a class="card" href="workshop.html"><span class="number" data-en="Module 1" data-zh="單元 1">Module 1</span><strong data-en="Start with your own idea" data-zh="從自己的點子出發">Start with your own idea</strong><small data-en="Answer four questions in your own words. Kodi helps you turn them into a first prompt you can edit." data-zh="用自己的話回答四個問題，讓 Kodi 幫你組成第一份可以修改的提示詞。">Answer four questions in your own words. Kodi helps you turn them into a first prompt you can edit.</small></a>
+<a class="card game" href="kodi_s_prompt_builder_create_apps_games_with_ai.html"><span class="number" data-en="Module 2" data-zh="單元 2">Module 2</span><strong data-en="Build from idea cards" data-zh="用靈感卡拼出作品">Build from idea cards</strong><small data-en="Pick a starting idea, choose features or game rules, and explore styles. Finish with a simple or detailed prompt." data-zh="從靈感卡挑選題材、功能或遊戲規則，再搭配喜歡的風格，產生簡單版或詳細版提示詞。">Pick a starting idea, choose features or game rules, and explore styles. Finish with a simple or detailed prompt.</small></a>
+</div></section></main><script>
+const toggle = document.getElementById('lang');
+function localize(zh) {
+  document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+  toggle.textContent = zh ? 'English' : '繁體中文';
+  toggle.lang = zh ? 'en' : 'zh-Hant';
+  document.querySelectorAll('[data-en]').forEach(el => el.textContent = zh ? el.dataset.zh : el.dataset.en);
+}
+let zh = navigator.language.toLowerCase().startsWith('zh');
+try { const preference = localStorage.getItem('prompt-builder-landing-language'); if (preference) zh = preference === 'zh' } catch {}
+localize(zh);
+toggle.onclick = () => { zh = !zh; localize(zh); try { localStorage.setItem('prompt-builder-landing-language', zh ? 'zh':'en') } catch {} };
+</script></body></html>
