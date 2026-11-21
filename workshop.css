@@ -1,0 +1,44 @@
+* { box-sizing: border-box }
+:root { color-scheme: light; --ink: #293229; --green: #37573e; --paper: #faf9f2 }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 1.125rem/1.55 "Avenir Next", "Nunito", system-ui, sans-serif }
+button, textarea { color: inherit; font: inherit }
+button { cursor: pointer; min-height: 44px; background: #fffef8; border: 1.5px solid #8b9783; border-radius: 10px; padding: .45rem 1rem; font-weight: 700 }
+:focus-visible { outline: 3px solid #155cb1; outline-offset: 4px }
+header { background: #fffef8; border-bottom: 1px solid #cfd3c5 }
+.wrap { width: min(1100px, 100%); padding-inline: clamp(16px,4vw,40px); margin: auto }
+.top,.brand,.progress,.examples,.nav { display: flex; align-items: center; gap: 12px }
+.top,.nav { justify-content: space-between }
+.top { min-height: 74px }.brand { font-size: clamp(1rem, 2.4vw, 1.45rem); letter-spacing: -.045em }
+.mark { display: grid; place-items: center; background: var(--green); color: white; width: 40px; height: 40px; border-radius: 12px; font-size: 30px }
+main { padding-top: clamp(18px,3vw,34px) }
+.welcome { background: #e3ecd9; border: 1.5px solid #adbd9e; border-radius: 24px; overflow: hidden; display: grid; grid-template-columns: 32% 1fr }
+.portrait { position: relative; min-height: 285px; background: #d8e4cd }
+.portrait img { display: block; position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: center 36% }
+.portrait span { position: absolute; bottom: 13px; left: 50%; transform: translateX(-50%) rotate(-3deg); white-space: nowrap; border-radius: 7px; border: 1.5px solid var(--green); background: #fff7dc; padding: .12rem .85rem; font-size: .9rem; font-weight: 800 }
+.dialogue { align-self: center; padding: clamp(18px,3.8vw,46px) }
+.eyebrow,.progress { color: #455e44; font-weight: 750 }
+.eyebrow { text-transform: uppercase; font-size: .82rem; letter-spacing: .13em }
+h1,h2,.card strong { font-family: Georgia, "Times New Roman", serif; letter-spacing: -.035em; line-height: 1.12 }
+h1 { font-size: clamp(2rem,4.8vw,3.5rem); margin: .45rem 0 .65rem }
+.dialogue p { margin: 0; max-width: 580px }
+#listen { background: transparent; color: var(--green); padding: .35rem 0; border: 0; text-underline-offset: 4px; text-decoration: underline; font-size: 1rem }
+.progress { margin: 1.6rem 0 .6rem; font-size: .9rem }
+#meter { display: flex; gap: 4px } #meter i { width: 18px; height: 5px; background: #d8dcce; border-radius: 4px } #meter .done { background: #506e4e }
+h2 { font-size: clamp(1.8rem,3.4vw,2.55rem); margin: 0 0 1.15rem }
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 18px }
+.card { display: flex; align-items: center; gap: 18px; text-align: left; min-height: 135px; padding: 20px; border-radius: 18px; background: #e7efde; border-color: #7f9274; box-shadow: 0 3px #aaba9f }
+.card.game { background: #f8e4d6; border-color: #ac8970; box-shadow: 0 3px #c7ac98 }
+.card:hover,.example:hover { filter: brightness(.97) }
+.card strong { display: block; font-size: 1.9rem; margin-bottom: 6px }.card small { display: block; font-size: 1rem; font-weight: 500 }
+.icon { flex: none; width: 66px; height: 66px; border-radius: 18px; display: grid; place-items: center; background: #cfdfc0; color: #324f35 }
+.game .icon { background: #f1c7ac; color: #623d30 }
+.icon svg { width: 46px; height: 46px; stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round }
+.box { padding: clamp(14px,3vw,24px); border: 1px solid #bfc6b8; background: #fffef9; border-radius: 16px }
+label { display: block; font-weight: bold; margin-bottom: 6px }
+textarea { width: 100%; display:block; padding: .8rem; border: 1.5px solid #8f9b88; border-radius: 9px; min-height: 90px; resize: vertical; background: white }
+textarea.prompt { min-height: 290px }.examples { flex-wrap: wrap; margin-top: 12px; gap: 8px }.example { background: #eff3e7; font-size: 1rem; text-align:left }
+.nav { margin-top: 16px; flex-wrap: wrap }.primary { background: var(--green); color: white; border-color: var(--green) }
+#status { color: #764125; font-weight: 700 }#status:empty { display:none }
+footer { padding-block: 26px; color: #596554; font-size: .9rem }footer span { display:block; border-top: 1px solid #d0d4c8; padding-top: 13px }
+@media(max-width:680px) { .top { min-height:64px }.brand {gap:7px}.mark {width:30px;height:30px;font-size:23px}.welcome {grid-template-columns: 30% 1fr}.portrait {min-height:175px}.portrait img {object-position:48% center}.portrait span {font-size:.8rem;padding:0 5px}.dialogue {padding:15px}.dialogue p {font-size:1rem}.choices {grid-template-columns:1fr}.card {min-height:100px;padding:15px} }
+@media(max-width:430px) { .welcome {display:block;position:relative}.portrait {float:right;width:94px;height:94px;min-height:0;border-radius:50%;margin:14px 14px 0 8px}.portrait img {border-radius:50%}.portrait span {bottom:-6px}.dialogue {padding:18px}.eyebrow {font-size:.75rem}.top button {padding:.4rem .6rem} }

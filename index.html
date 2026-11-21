@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f0">
+  <title>Kodi’s Prompt Workshop</title>
+  <link rel="stylesheet" href="workshop.css">
+  <script defer src="workshop.js"></script>
+</head>
+<body>
+  <header><div class="wrap top"><b class="brand"><span class="mark" aria-hidden="true">✧</span><span id="brand"></span></b><button id="language"></button></div></header>
+  <main class="wrap">
+    <section class="welcome">
+      <div class="portrait"><img src="kodi.png" alt="Kodi"><span id="name"></span></div>
+      <div class="dialogue"><div class="eyebrow" id="eyebrow"></div><h1 id="title"></h1><p id="speech"></p><button id="listen" hidden></button></div>
+    </section>
+    <div class="progress"><span id="meter" aria-hidden="true"></span><span id="progress"></span></div>
+    <h2 id="question" tabindex="-1"></h2>
+    <div id="panel"></div>
+    <p id="status" role="status"></p>
+  </main>
+  <footer class="wrap"><span id="foot"></span></footer>
+</body></html>
